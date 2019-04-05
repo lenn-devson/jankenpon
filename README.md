@@ -1,24 +1,23 @@
-# README
+# Challenge: Scissor-Stone-Paper (work in progress)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Implement the game "Scissors-Rock-Paper" in Ruby. The version is irrelevant and therefore freely selectable. 
+ 
+- The game can be realized in two variants, whereby the choice of the variant is left to you: 
 
-Things you may want to cover:
+  * In variant 1 there are the game elements "scissors", " rock" and "paper", whereby each element exactly has one weakness and strength.
+  * In variant 2 there can be as many game elements as you like. The elements can also have more than one weakness and strength. 
+  
+- At the beginning of the game, the user should select one of the following game elements 
+- The opponent's game element shall be chosen at random 
+- It should also be displayed how the game ended 
+- Theoretically, an infinite number of games can be played one after another 
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Setup:
+- checkout/download project
+- make sure to have ruby installed on your machine (developed with ruby v 2.5.1)
+- cd into project
+- run bundle
+- rake db:setup
+- rails s
+- visit localhost:3000
+- play scissor-rock-paper until bored
