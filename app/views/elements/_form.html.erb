@@ -1,0 +1,29 @@
+<%= form_with(model: element, local: true) do |form| %>
+  <% if element.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(element.errors.count, "error") %> prohibited this element from being saved:</h2>
+
+      <ul>
+      <% element.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <p> Gewinnt gegen:</p>
+  <% @elements.each do |el| %>
+    <div class="field">
+      <%= check_box_tag "element[win_elements][]", el.id, element.win_elements.ids.include?(el.id), id: "element_win_#{el.id}"  %>
+      <%= label_tag "element_win_#{el.id}", el.title %>
+    </div>
+  <% end %>
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

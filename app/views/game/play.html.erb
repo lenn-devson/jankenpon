@@ -1,0 +1,46 @@
+<div class='board'>
+  <%= form_tag evaluate_path, method: :post do %>
+
+    <p> Runden zu spielen: <%= @rounds %></p>
+    <div class='bots'>
+      <% @bots.each do |bot| %>
+        <div class='bot-player <%= bot['result'] %>' id='bot-player-<%= bot['id'] %>'>
+          Bot <%= bot['id'] %>
+
+          <div class='bot-element' id='bot-element-<%= bot['id'] %>'>
+            <%= bot['element'].try(:[],'title') %>
+          </div>
+          <span class='score'>Punkte:<%= bot['score'] %></span>
+        </div>
+      <% end %>
+    </div>
+    <div class='player'>
+      Spieler
+      <div class='player-elements'>
+        <% @elements.each do |element| %>
+          <div
+            class='player-element<%= element.id == @player_element ? ' active': nil%>'
+            id='player-element-<%= element.id %>'
+            data-element-id='<%= element.id %>'>
+            <%= element.title %>
+          </div>
+        <% end %>
+      </div>
+      <span class='score'>Punkte:<%= @player['score'] %></span>
+    </div>
+    <%= hidden_field_tag :element_id, @player_element %>
+    <%= submit_tag 'Abschicken', disabled: !@player_element, id: 'game-submit' %>
+  <% end %>
+</div>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $('.player-element').click(function(){
+      $('.player-element').removeClass('active');
+      $(this).addClass('active');
+      $('#element_id').val($(this).data('element-id'));
+      $('#game-submit').removeAttr('disabled');
+    });
+  });
+</script>

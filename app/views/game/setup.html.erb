@@ -1,0 +1,24 @@
+<% if flash[:notice] %>
+  <div class="flash">
+    <p class="notice">
+      <%= flash[:notice] %>
+    </p>
+  </div>
+<% end %>
+
+<h1> Schere, Stein, Papier</h1>
+<p> ...oder wie der Japaner sagt: "Jan-ken Pon"</p>
+
+<%= form_tag setup_path, method: :post do %>
+  <div class='form-field'>
+    <p> Wieviele Gegner? </p>
+    <%= select_tag :players, options_for_select(1..10) %>
+  </div>
+  <div class='form-field'>
+    <p> Wieviele Runden? </p>
+    <%= select_tag :rounds, options_for_select(1..10) %>
+  </div>
+  <p>
+    <%= submit_tag 'Los' %>
+  </p>
+<% end %>
