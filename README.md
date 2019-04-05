@@ -15,9 +15,9 @@ Implement the game "Scissors-Rock-Paper" in Ruby. The version is irrelevant and 
 Setup:
 - checkout/download project
 - make sure to have ruby installed on your machine (developed with ruby v 2.5.1)
-- cd into project
-- run bundle
-- rake db:setup
-- rails s
-- visit localhost:3000
+- `cd` into project
+- run `bundle`
+- `rake db:setup`
+- `rails s`
+- visit `localhost:3000`
 - play scissor-rock-paper until bored
